@@ -1,0 +1,46 @@
+mode: train
+
+common:
+  dataset: lld
+  modalities: [C_pre_256, C_A_256_registered]
+  profile: false
+  gpu_id: "0"
+  ckpt_dir: "./checkpoints/lld_dmamsa/"
+  num_classes: 2
+  att_kernel: 9
+
+  use_gpu: true
+  num_refinement_blocks: 2
+  start_slice: 12
+  end_slice: -4
+  img_height: 256
+  img_width: 256
+  channels: 1
+  data_list: "./data_list/lld_shuffled.txt"
+  dataroot: "../dataset/LLD-MMRI/Registered/"
+
+train:
+  n_epochs: 150
+  decay_epoch: 100
+  batch_size: 12
+  lr: 0.00005
+  debugging: false
+
+  start_num: 0
+  end_num: 320
+  start_num_val: 320
+  end_num_val: 340
+  b1: 0.5
+  b2: 0.999
+  n_cpu: 16
+  epoch: 0
+  checkpoint_interval: 1
+  lambda_id: 100.0
+
+test:
+  phase_index: all
+  which_epoch: 150
+
+  notes: "_fake_"  # Output directory suffix
+  start_num: 340
+  end_num: 440

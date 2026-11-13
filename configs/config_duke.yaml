@@ -1,0 +1,46 @@
+mode: train
+
+common:
+  dataset: duke
+  modalities: [C_pre_256, C_A_256_registered]
+  profile: false
+  gpu_id: "0"
+  ckpt_dir: "./checkpoints/duke_dmamsa/"
+
+  use_gpu: true
+  num_refinement_blocks: 2
+  num_classes: 2
+  att_kernel: 9
+  start_slice: 8
+  end_slice: -4
+  img_height: 256
+  img_width: 256
+  channels: 1
+  data_list: "./data_list/duke_list.txt"
+  dataroot: "../dataset/Duke_Liver_registered/"
+
+train:
+  n_epochs: 150
+  decay_epoch: 100
+  batch_size: 12
+  lr: 0.00005
+  debugging: false
+
+  start_num: 0
+  end_num: 203
+  start_num_val: 203
+  end_num_val: 234
+  b1: 0.5
+  b2: 0.999
+  n_cpu: 16
+  epoch: 0
+  checkpoint_interval: 5
+  lambda_id: 100.0
+
+test:
+  phase_index: all
+  which_epoch: latest
+
+  notes: ""  # Output directory suffix
+  start_num: 234
+  end_num: 294

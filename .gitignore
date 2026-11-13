@@ -1,0 +1,21 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.idea/
+.vscode/
+.DS_Store
+
+# Local datasets, checkpoints, and outputs
+/datasets/
+/dataset/
+/checkpoints/
+/outputs/
+*.nii
+*.nii.gz
+*.pth
+*.pt
+*.ckpt
+*.log
+
